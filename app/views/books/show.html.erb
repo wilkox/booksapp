@@ -3,56 +3,45 @@
     body {
       background: #<%= @book.bgcol %>;
     }
-    h1 {
+    .title, .title:visited, .title:active {
+      background: inherit;
       font-family: '<%= @book.font1 %>';
+      font-size: 850%;
+      color: #<%= @book.textcol1 %>;
+      text-shadow: 1px 1px 2px;
+      opacity: 0.8;
+      text-decoration: none;
+    }
+
+    .title:hover {
+      text-shadow: 2px 2px 4px #<%= @book.textcol1 %>;
+    }
+
+    h2 {
+      font-family: '<%= @book.font2 %>';
+      font-size: 250%;
+      color: #<%= @book.textcol1 %>;
+      opacity: 0.8;
+    }
+
+    .description {
+      font-family: '<%= @book.font2 %>';
+      font-size: 150%;
+      color: #<%= @book.textcol2 %>;
     }
   -->
 </style>
 
 <p>
-  <h1><%= @book.title %></h1>
+  <%= link_to @book.title, 'http://www.amazon.com/dp/' + @book.amazonid, class: "title"%>
+  <h2><%= @book.author %></h2>
 </p>
 
 <p>
-  <b>Author:</b>
-  <%= @book.author %>
+  <div class="description">
+    <%= @book.description %>
+  </div>
 </p>
-
-<p>
-  <b>Description:</b>
-  <%= @book.description %>
-</p>
-
-<p>
-  <b>Amazonid:</b>
-  <%= @book.amazonid %>
-</p>
-
-<p>
-  <b>Bgcol:</b>
-  <%= @book.bgcol %>
-</p>
-
-<p>
-  <b>Textcol1:</b>
-  <%= @book.textcol1 %>
-</p>
-
-<p>
-  <b>Textcol2:</b>
-  <%= @book.textcol2 %>
-</p>
-
-<p>
-  <b>Font1:</b>
-  <%= @book.font1 %>
-</p>
-
-<p>
-  <b>Font2:</b>
-  <%= @book.font2 %>
-</p>
-
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
