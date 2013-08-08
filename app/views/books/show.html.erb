@@ -1,8 +1,16 @@
-<p id="notice"><%= notice %></p>
+<style TYPE="text/css">
+  <!--
+    body {
+      background: #<%= @book.bgcol %>;
+    }
+    h1 {
+      font-family: '<%= @book.font1 %>';
+    }
+  -->
+</style>
 
 <p>
-  <b>Title:</b>
-  <%= @book.title %>
+  <h1><%= @book.title %></h1>
 </p>
 
 <p>
